@@ -17,6 +17,7 @@ def index():
         files = request.files.getlist('files[]')
 
         for file in files:
+            print(file)
             print("file_received")
         
         return render_template("index.html")
