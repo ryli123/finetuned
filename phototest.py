@@ -1,7 +1,7 @@
 from PIL import Image, ImageEnhance
 from PIL import ImageFilter
 from PIL.ImageFilter import (
-    ModeFilter
+    RankFilter, MedianFilter, MinFilter, MaxFilter
     )
 image = Image.open('city.jpeg')
 
@@ -9,7 +9,7 @@ print(image.format)
 print(image.mode)
 print(image.size)
 
-image.show()
+#image.show()
 
 enhancer = ImageEnhance.Brightness(image)
 enhancer.enhance(0.25).save(
@@ -19,6 +19,15 @@ def song_to_image(photo, song_extract):
     # put the filtering stuff here, return an edited image
     # the song_extract is an array in this order
     # danceability, tempo, energy, valence, mode
+
+    # STEP 1: saturation
+    saturation = song_extract[3]*10*0.6 + song_extract[0]*10*0.4 
+    print(saturation)
+    photo = ImageEnhance.Color(photo).enhance(saturation)
+
+    # STEP 2: contrast
+    contrast = song_extract[2]*5
+    photo = ImageEnhance.Contrast(photo).enhance(contrast)
 
     if (song_extract[4] == 0):
         pic = photo.filter(MinFilter(size=9))
