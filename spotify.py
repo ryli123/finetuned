@@ -4,8 +4,8 @@ import pandas as pd
 
 # Get cid and secret by logging in here https://developer.spotify.com/dashboard/
 
-cid = ''
-secret= ''
+cid = '0edff00b50fc4425b0fe694c47b0a097'
+secret='481ff02a69744a81855cacf95fc576a9'
 
 client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secret=secret)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
