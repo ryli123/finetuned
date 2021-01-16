@@ -1,6 +1,7 @@
 from flask import Flask, render_template, flash, request, redirect, url_for
+from werkzeug.utils import secure_filename
 
-
+UPLOAD_FOLDER = /templates
 ALLOWED_EXTENSIONS = {'jpg','png','jpeg'}
 
 app = Flask(__name__)
@@ -17,7 +18,7 @@ def index():
         files = request.files.getlist('files[]')
 
         for file in files:
-            print(file)
+            file.save("")
             print("file_received")
         
         return render_template("index.html")
