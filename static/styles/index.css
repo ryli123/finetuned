@@ -1,7 +1,11 @@
+/*
+    Credit to:
+        - https://www.w3schools.com/howto/howto_css_register_form.asp
+
+*/
+
+
 * {box-sizing: border-box}
-
-/* Text font changes */
-
 
 /* Add padding to containers */
 .container {
