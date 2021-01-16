@@ -7,10 +7,18 @@
 </head>
 <body>
     <h1>Add Images</h1>
+
     <form method=post action="/" enctype=multipart/form-data>
+        <h2> Find Song </h2>
+        <input type=text name="title" placeholder="Song Title">
+        <input type=text name="artist" placeholder="Artist">
+
+        <h2> Upload Images </h2>
         <input id="upload-btn" type=file name=files[] multiple=multiple>
 
         <input type=submit value=Upload>
     </form>
+
+
 </body>
 </html>

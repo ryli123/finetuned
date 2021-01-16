@@ -1,7 +1,6 @@
 from flask import Flask, render_template, flash, request, redirect, url_for
-from werkzeug.utils import secure_filename
+from spotify import find_song
 
-UPLOAD_FOLDER = /templates
 ALLOWED_EXTENSIONS = {'jpg','png','jpeg'}
 
 app = Flask(__name__)
@@ -16,11 +15,10 @@ def index():
             flash('No file part')
             return redirect(request.url)
         files = request.files.getlist('files[]')
+        artist = request.form.get('artist')
+        title = request.form.get('title')
+        find_song(title, artist)
 
-        for file in files:
-            file.save("")
-            print("file_received")
-        
         return render_template("index.html")
 
     return render_template("index.html")
