@@ -2,11 +2,9 @@
 
 {% block body %}
     <div class="container">
-        <h1>Add Images</h1>
+        <h1>Upload Images</h1>
 
         <form method=post action="/start" enctype=multipart/form-data>
-
-            <h3>Upload Images</h3>
             <input class="inputfile" id="files" type=file name=files[] multiple=multiple data-multiple-caption="{count} files selected" required>
             <label for="files" id="file-label">Choose File(s)</label>
 

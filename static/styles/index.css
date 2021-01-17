@@ -6,9 +6,10 @@
 
 * {
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #4CAF50;
-  background: #d34e4e;
+  font-family: "DIN","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #fefefe;
+  background: #3a3a3a;
+  text-align: center;
 }
 
 
@@ -25,11 +26,13 @@ input[type=text] {
   display: inline-block;
   border: none;
   background: #f1f1f1;
+  color:rgb(104, 104, 104);
 }
 
 input[type=text]:focus {
   background-color: #ddd;
   outline: none;
+  color:rgb(104, 104, 104);
 }
 
 /* Overwrite default styles of hr */
@@ -73,7 +76,9 @@ hr {
         text-align: center;
         padding: 25% 0%;
         border-radius: 10px;
-        display: inline-block;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 
 
