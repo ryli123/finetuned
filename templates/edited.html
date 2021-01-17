@@ -2,10 +2,17 @@
 
 {% block body %}
     <div class="container">
-        <h1> Edited Photos: </h1>
-        {% for image in images %}
-        <img src={{image}} />
-        {% endfor %}
+
+        <h2> Selected Image(s): </h2>
+        <h3> Best Song Match: {{title}} by {{artist}} </h3>
+        <div class="gallery">
+
+            {% for image in images%}
+            <div class="image-block">
+                <img class="uploaded-image" src={{image}} />
+            </div>
+            {% endfor %}
+        </div>
 
         <form method=post action="/edited">
             <input type=submit value="Try Other Photos" class="submitbtn">

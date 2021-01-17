@@ -3,6 +3,7 @@ from PIL import ImageFilter, ImageChops
 from PIL.ImageFilter import (
     RankFilter, MedianFilter, MinFilter, MaxFilter
     )
+import math
 #image = Image.open('city.jpeg')
 
 
@@ -93,18 +94,18 @@ def song_to_image(image, song_extract, sentiment): #pass sentiment in too
     
     #SENTIMENT ANALYSIS, to fix any previous adjustments 
 
-    if (neut > 0.5):
-        photo = ImageEnhance.Brightness(photo).enhance(neut)
-        photo = ImageEnhance.Contrast(photo).enhance((pos-neg)*5)
-        photo = ImageEnhance.Color(photo).enhance((pos-neg)*5)
+    if (neut > 0.6):
+        photo = ImageEnhance.Brightness(photo).enhance(math.sqrt(neut))
+        photo = ImageEnhance.Contrast(photo).enhance((pos-neg)*2)
+        photo = ImageEnhance.Color(photo).enhance((pos-neg)*2)
     elif (pos > neg and not neg==0):
-        ratio = (pos/neg) / 4
+        ratio = math.pow((pos/neg), 1/8)
         print(ratio)
         #print(int(ratio))
         photo = ImageEnhance.Brightness(photo).enhance(ratio)
         photo = ImageEnhance.Color(photo).enhance(ratio)
     elif (neg > pos and not pos==0): 
-        ratio = (neg/pos)
+        ratio = math.pow((pos/neg), 1/8)
         photo = ImageEnhance.Brightness(photo).enhance(ratio)
         photo = ImageEnhance.Color(photo).enhance(ratio)
     

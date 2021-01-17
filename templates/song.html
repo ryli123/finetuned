@@ -12,9 +12,14 @@
         </form>
 
         <h2> Selected Image(s): </h2>
-        {% for image in images %}
-            <img src={{image}} />
-        {% endfor %}
+        <div class="gallery">
+
+            {% for image in images%}
+            <div class="image-block">
+                <img class="uploaded-image" src={{image}} />
+            </div>
+            {% endfor %}
+        </div>
 
     </div>
     {% endblock %}
