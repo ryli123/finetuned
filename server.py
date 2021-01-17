@@ -28,8 +28,15 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/', methods=["GET", "POST"])
+@app.route('/', methods=['GET','POST'])
 def index():
+    if request.method == 'POST':
+        return redirect('/start')
+
+    return render_template("index.html")
+
+@app.route('/start', methods=["GET", "POST"])
+def start():
     if request.method == 'POST':
         # check if the post request has the file part
         if 'files[]' not in request.files:
@@ -52,7 +59,7 @@ def index():
         
         return redirect(url_for('song'))
 
-    return render_template("index.html")
+    return render_template("start.html")
 
 
 @app.route('/song', methods=["GET", "POST"])
@@ -67,7 +74,7 @@ def song():
         return redirect(url_for("edited"))
 
     if session.get("images") is None:
-        return redirect('/')
+        return redirect('/start')
 
     return render_template("song.html", images=session["images"])
 
@@ -77,10 +84,10 @@ def edited():
     
     if request.method == 'POST':
         session.clear()
-        return redirect('/')
+        return redirect('/start')
 
     if session.get("images") is None:
-        return redirect('/')
+        return redirect('/start')
     elif session.get("song_info") is None:
         return redirect('/song')
 
@@ -90,6 +97,9 @@ def edited():
         images.append(song_to_image(image, session["song_info"], sentiment_num)) #pass in sentiment_num set of (pos, neg, neutral) as well
     session.clear()
     return render_template("edited.html", images=images)
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
