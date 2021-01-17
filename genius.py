@@ -5,10 +5,10 @@ from pprint import pprint
 import unicodedata
 
 
-API_TOKEN = 'hrFxs-BZh83CNcU8TVfPc8IpSHrEyHk8XCnbTZKuz87gCJ8hQxCXlwH-BRK0r4fI'
+API_TOKEN = ''
 
-subscription_key = "a529a57e42a443cd8a80f02b69f88ca5"
-endpoint = "https://hodp.cognitiveservices.azure.com/"
+subscription_key = ""
+endpoint = ""
 sentiment_url = endpoint + "/text/analytics/v3.0/sentiment"
 
 def chunk(text):
