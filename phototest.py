@@ -3,19 +3,21 @@ from PIL import ImageFilter, ImageChops
 from PIL.ImageFilter import (
     RankFilter, MedianFilter, MinFilter, MaxFilter
     )
-image = Image.open('test.jpg')
 
-print(image.format)
-print(image.mode)
-print(image.size)
 
 #image.show()
 
-enhancer = ImageEnhance.Brightness(image)
-enhancer.enhance(0.25).save(
-    "ImageEnhance_Brightness_100.jpg")
+#enhancer = ImageEnhance.Brightness(image)
+#enhancer.enhance(0.25).save(
+#    "ImageEnhance_Brightness_100.jpg")
 
-def song_to_image(photo, song_extract):
+def song_to_image(image, song_extract):
+    photo = Image.open(image)
+
+    print(photo.format)
+    print(photo.mode)
+    print(photo.size)
+
     # put the filtering stuff here, return an edited image
     # the song_extract is an array in this order
     # danceability, tempo, energy, valence, mode
@@ -76,6 +78,9 @@ def song_to_image(photo, song_extract):
     if (song_extract[4] == 1):
         pic = photo.filter(ImageFilter.SMOOTH) #<--- idk
         pic.save("ImageFilter_MaxFilter_9.jpg")
-    pic.show()
+    
+    path=image.rsplit('.', 1)[0] + "_edited.jpg"
+    photo.save(path)
+    return path
 
-song_to_image(image, [0.583, 80.004, 0.637, 0.315, 1])
+# song_to_image(image, [0.583, 80.004, 0.637, 0.315, 1])

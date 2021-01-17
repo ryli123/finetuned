@@ -4,10 +4,12 @@ from werkzeug.utils import secure_filename
 from tempfile import mkdtemp
 import os
 from spotify import find_song
+from genius import calc_sentiment
+from phototest import song_to_image
 
 
 UPLOAD_FOLDER = 'static/uploads/'
-ALLOWED_EXTENSIONS = {'jpg','png','jpeg', 'PNG', 'JPG'}
+ALLOWED_EXTENSIONS = {'jpg','png','jpeg'}
 
 app = Flask(__name__)
 Session(app)
@@ -67,7 +69,10 @@ def song():
 
 @app.route('/edited', methods=["GET", "POST"])
 def edited():
-    return render_template("edited.html")
+    images = []
+    for image in session["images"]:
+        images.append(song_to_image(image, session["song_info"]))
+    return render_template("edited.html", images=images)
 
 if __name__ == "__main__":
     app.run(debug=True)

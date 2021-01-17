@@ -85,3 +85,7 @@ hr {
     .inputfile + label * {
         pointer-events: none;
     }
+
+img {
+    max-width: 100%;
+}
