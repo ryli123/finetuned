@@ -34,9 +34,9 @@ Long term, AI could have play a potential role in the photo-editing process. Cur
 
 
 ## Built With
--  [Flask] (https://flask.palletsprojects.com/en/1.1.x/)
--  [Bootstrap Navbar] (https://getbootstrap.com/docs/4.0/components/navbar/)
--  [Jinja] (https://jinja.palletsprojects.com/en/2.11.x/)
+-  [Flask] (https://flask.palletsprojects.com/en/1.1.x/) - Web Framework
+-  [Bootstrap Navbar] (https://getbootstrap.com/docs/4.0/components/navbar/) - Bootstrap components
+-  [Jinja] (https://jinja.palletsprojects.com/en/2.11.x/) - Web Template Engine
 
 ## Acknowledgements
 Inspiration was drawn from:
