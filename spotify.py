@@ -10,10 +10,28 @@ secret='481ff02a69744a81855cacf95fc576a9'
 client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secret=secret)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
+def basic_info(title, artist):
+    query = "artist:"+artist + " track:" + title
+
+    track_results = sp.search(q=query, type='track')
+
+    if not track_results:
+        return ()
+
+    t = track_results['tracks']['items'][0]
+
+    artist_name = t['artists'][0]['name']
+    track_name = t['name']
+
+    return( track_name, artist_name)
+
 def find_song(title, artist):
     query = "artist:"+artist + " track:" + title
 
     track_results = sp.search(q=query, type='track')
+
+    if not track_results['tracks']['items']:
+        return []
 
     t = track_results['tracks']['items'][0]
 
@@ -26,6 +44,8 @@ def find_song(title, artist):
     print(track_name)
     print(popularity)
     print(track_id)
+
+    info = (artist_name, track_name)
 
     #track_dataframe = pd.DataFrame({'artist_name' : artist_name, 'track_name' : track_name, 'popularity' : popularity})
     #print(track_dataframe.shape)

@@ -3,7 +3,7 @@ from flask_session import Session
 from werkzeug.utils import secure_filename
 from tempfile import mkdtemp
 import os
-from spotify import find_song
+from spotify import find_song, basic_info
 from genius import calc_sentiment, find_lyrics
 from phototest import song_to_image
 
@@ -23,7 +23,6 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 Session(app)
-
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -68,8 +67,15 @@ def song():
     if request.method == 'POST':
         artist = request.form.get('artist')
         title = request.form.get('title')
+        
+        song_info = find_song(title, artist)
 
-        session["song_info"] = find_song(title, artist)
+        if(len(song_info) == 0):
+            return redirect(request.url)
+
+        session["song_info"]= song_info
+        session["basic_info"] = basic_info(title, artist)
+
         # check if this is correct
         session['sentiment_num'] = calc_sentiment(find_lyrics(title, artist))
         return redirect(url_for("edited"))
@@ -96,7 +102,7 @@ def edited():
     for image in session["images"]:
         #images.append(song_to_image(image, session["song_info"]))
         images.append(song_to_image(image, session["song_info"], session['sentiment_num'])) #pass in sentiment_num set of (pos, neg, neutral) as well
-    return render_template("edited.html", images=images)
+    return render_template("edited.html", images=images, title=session["basic_info"][0], artist=session["basic_info"][1])
 
 
 
