@@ -4,13 +4,9 @@
 
 */
 
-* {
-  box-sizing: border-box;
-  font-family: "DIN","Helvetica Neue",Helvetica,Arial,sans-serif;
-  color: #fefefe;
-  background: #3a3a3a;
-  text-align: center;
-}
+
+* {box-sizing: border-box}
+* {font-family: Arial, Helvetica, sans-serif}
 
 
 /* Add padding to containers */
@@ -26,13 +22,11 @@ input[type=text] {
   display: inline-block;
   border: none;
   background: #f1f1f1;
-  color:rgb(104, 104, 104);
 }
 
 input[type=text]:focus {
   background-color: #ddd;
   outline: none;
-  color:rgb(104, 104, 104);
 }
 
 /* Overwrite default styles of hr */
@@ -43,14 +37,14 @@ hr {
 
 /* Set a style for the submit/register button */
 .submitbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
+    background-color: #BC41EC;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
 }
 
 .submitbtn:hover {
@@ -76,9 +70,7 @@ hr {
         text-align: center;
         padding: 25% 0%;
         border-radius: 10px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+        display: inline-block;
     }
 
 
@@ -97,4 +89,48 @@ hr {
 
 img {
     max-width: 100%;
+}
+
+#home-banner{
+    min-width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.home-container{
+    width: 100%;
+    text-align: center;
+}
+
+#home-title {
+    color: white;
+    font-weight: bold;
+    padding-top: 5%;
+    font-size: 64px;
+}
+
+
+#logo-banner{
+    z-index: 0;
+    margin: auto;
+    margin-top: -7.5%;
+    width: 60%;
+}
+
+#home-form{
+   margin-top: 15%;
+}
+
+#tagline{
+    color: #EEEEEE;
+    margin-top: -10%;
+    font-style: italic;
+}
+
+#nav-bar-img{
+    height: 40px;
+    margin: 0px;
 }

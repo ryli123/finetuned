@@ -1,12 +1,18 @@
 ﻿{% extends 'layout.html' %}
 
 {% block body %}
-    <div class="container">
-        <h1>A Thousand Beats</h1>
+    <div class="home-container">
+        <img src="static/logo.png" id="logo-banner"/>
+        <img src="static/home_background.jpg" id="home-banner"/>
 
-        <form method=post action="/" >
-            <input type=submit value="Try Now!" class="submitbtn">
-        </form>
+        <h2 id="tagline"> Tune your photos to the sounds of your favourite song </h2>
+
+        <div class="container" id="home-form">
+            <form method=post action="/">
+                <input type=submit value="Try Now!" class="submitbtn">
+            </form>
+        </div>
+     
 
     </div>
     {% endblock %}
