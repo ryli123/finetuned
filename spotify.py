@@ -39,10 +39,10 @@ def find_song(title, artist):
     song_extract = [] 
 
     for item in song_data:
-       song_extract = [item['danceability'], item['tempo'], item['energy'], item['valence'], item['mode']]
+       song_extract = [item['danceability'], item['tempo'], item['energy'], item['valence'], item['mode'], item['loudness'], item['instrumentalness']]
 
     print(song_extract)
     return song_extract
 
 if __name__ == "__main__":
-    find_song("Times Like These", "EDEN")
+    find_song("Baby", "Justin Bieber")
