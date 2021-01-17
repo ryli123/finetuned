@@ -34,10 +34,10 @@ Long term, AI could have play a potential role in the photo-editing process. Cur
 
 
 ## Built With
-- [Flask] (https://flask.palletsprojects.com/en/1.1.x/)
-- [Bootstrap Navbar] (https://getbootstrap.com/docs/4.0/components/navbar/)
-- [Jinja] (https://jinja.palletsprojects.com/en/2.11.x/)
+-  [Flask] (https://flask.palletsprojects.com/en/1.1.x/)
+-  [Bootstrap Navbar] (https://getbootstrap.com/docs/4.0/components/navbar/)
+-  [Jinja] (https://jinja.palletsprojects.com/en/2.11.x/)
 
 ## Acknowledgements
 Inspiration was drawn from:
-- [Osvaldas Valutis](https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/) and his form input styling
+-  [Osvaldas Valutis](https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/) and his form input styling
