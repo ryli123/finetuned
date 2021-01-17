@@ -44,3 +44,6 @@ This project was built with:
 ## Acknowledgements
 Inspiration was drawn from:
 -  [Osvaldas Valutis](https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/) and his form input styling
+
+## License 
+This project is licensed under the terms of the [MIT](https://github.com/ryli123/finetuned/blob/master/LICENSE) license and is available for free use.
