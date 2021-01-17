@@ -4,6 +4,8 @@ Hack the North 2020++ project!
 A web app that edits photos to match the mood and lyrics of a song.
 
 ## Demo
+![images before edits](https://github.com/ryli123/finetuned/blob/master/static/ss3.PNG)
+![images after edits](https://github.com/ryli123/finetuned/blob/master/static/ss4.PNG)
 
 ## Getting Started
 ### Prerequisites
