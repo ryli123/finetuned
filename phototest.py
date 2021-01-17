@@ -4,23 +4,15 @@ from PIL.ImageFilter import (
     RankFilter, MedianFilter, MinFilter, MaxFilter
     )
 import math
-#image = Image.open('city.jpeg')
-
-
-#image.show()
-
-#enhancer = ImageEnhance.Brightness(image)
-#enhancer.enhance(0.25).save(
-#    "ImageEnhance_Brightness_100.jpg")
 
 def song_to_image(image, song_extract, sentiment): #pass sentiment in too 
     #sentiment passed in as tuple of (pos, neutral, neg) that sum up to 1 
     photo = Image.open(image)
     #photo = image
 
-    print(photo.format)
-    print(photo.mode)
-    print(photo.size)
+    #print(photo.format)
+    #print(photo.mode)
+    #print(photo.size)
 
     pos = sentiment[0]
     neut = sentiment[1]
@@ -37,7 +29,6 @@ def song_to_image(image, song_extract, sentiment): #pass sentiment in too
     sat_ratio3 = 0.5
     
     saturation = song_extract[3]*sat_ratio1 + song_extract[0]*sat_ratio2 - song_extract[6]*sat_ratio3 
-    print(saturation)
     photo = ImageEnhance.Color(photo).enhance(saturation)
 
     # STEP 2: contrast
@@ -45,7 +36,6 @@ def song_to_image(image, song_extract, sentiment): #pass sentiment in too
     con_ratio2 = 0.8
     
     contrast = song_extract[2]*con_ratio1 + -song_extract[5]/60*con_ratio2
-    print(contrast)
     photo = ImageEnhance.Contrast(photo).enhance(contrast)
 
     #STEP 3: brightness
@@ -100,8 +90,6 @@ def song_to_image(image, song_extract, sentiment): #pass sentiment in too
         photo = ImageEnhance.Color(photo).enhance((pos-neg)*2)
     elif (pos > neg and not neg==0):
         ratio = math.pow((pos/neg), 1/8)
-        print(ratio)
-        #print(int(ratio))
         photo = ImageEnhance.Brightness(photo).enhance(ratio)
         photo = ImageEnhance.Color(photo).enhance(ratio)
     elif (neg > pos and not pos==0): 
