@@ -4,7 +4,12 @@
     <div class="container">
         <h1 style="font-family: Arial, Helvetica, sans-serif"> Edited Photos: </h1>
         {% for image in images %}
-            <img src={{image}} />
+        <img src={{image}} />
         {% endfor %}
+
+        <form method=post action="/edited">
+            <input type=submit value="Try Other Photos" class="submitbtn">
+        </form>
+
     </div>
 {% endblock %}

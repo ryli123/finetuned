@@ -79,7 +79,7 @@ def song_to_image(image, song_extract):
         pic = photo.filter(ImageFilter.SMOOTH) #<--- idk
         pic.save("ImageFilter_MaxFilter_9.jpg")
     
-    path=image.rsplit('.', 1)[0] + "_edited.jpg"
+    path="static/edits/" + image[15:].rsplit('.', 1)[0] + "_edited.jpg"
     photo.save(path)
     return path
 

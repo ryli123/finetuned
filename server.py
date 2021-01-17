@@ -64,14 +64,30 @@ def song():
         session["song_info"] = find_song(title, artist)
         return redirect(url_for("edited"))
 
+    if session.get("images") is None:
+        return redirect('/')
+
     return render_template("song.html", images=session["images"])
 
 
 @app.route('/edited', methods=["GET", "POST"])
 def edited():
+    
+    if request.method == 'POST':
+        session.clear()
+        return redirect('/')
+
+    if session.get("images") is None:
+        return redirect('/')
+    elif session.get("song_info") is None:
+        return redirect('/song')
+
     images = []
     for image in session["images"]:
         images.append(song_to_image(image, session["song_info"]))
+    session.clear()
+
+
     return render_template("edited.html", images=images)
 
 if __name__ == "__main__":
