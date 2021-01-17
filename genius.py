@@ -49,7 +49,7 @@ def chunk(text):
         if curL + phr[1] < doc_limit:
             curL += phr[1]
             cur.append(phr[0])
-            print(cur)
+            # print(cur)
         else:
             documents.append(cur)
             cur = []
@@ -57,10 +57,10 @@ def chunk(text):
     if len(cur) > 0:
         documents.append(cur)
       
-    print('-----------------------------')
-    print(cur)
-    print(curL)
-    print(documents)
+    #print('-----------------------------')
+    #print(cur)
+    #print(curL)
+    #print(documents)
 
     # print(documents) # debug
 

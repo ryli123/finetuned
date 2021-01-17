@@ -97,14 +97,14 @@ def song_to_image(image, song_extract, sentiment): #pass sentiment in too
         photo = ImageEnhance.Brightness(photo).enhance(neut)
         photo = ImageEnhance.Contrast(photo).enhance((pos-neg)*5)
         photo = ImageEnhance.Color(photo).enhance((pos-neg)*5)
-    elif (pos > neg):
-        ratio = pos/neg
+    elif (pos > neg and not neg==0):
+        ratio = (pos/neg) / 4
         print(ratio)
         #print(int(ratio))
         photo = ImageEnhance.Brightness(photo).enhance(ratio)
         photo = ImageEnhance.Color(photo).enhance(ratio)
-    else: 
-        ratio = neg/pos
+    elif (neg > pos and not pos==0): 
+        ratio = (neg/pos)
         photo = ImageEnhance.Brightness(photo).enhance(ratio)
         photo = ImageEnhance.Color(photo).enhance(ratio)
     
