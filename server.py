@@ -86,14 +86,9 @@ def edited():
 
     images = []
     for image in session["images"]:
-<<<<<<< Updated upstream
-        images.append(song_to_image(image, session["song_info"]))
-    session.clear()
-
-
-=======
+        #images.append(song_to_image(image, session["song_info"]))
         images.append(song_to_image(image, session["song_info"], sentiment_num)) #pass in sentiment_num set of (pos, neg, neutral) as well
->>>>>>> Stashed changes
+    session.clear()
     return render_template("edited.html", images=images)
 
 if __name__ == "__main__":
