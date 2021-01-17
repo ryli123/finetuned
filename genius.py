@@ -5,20 +5,20 @@ from pprint import pprint
 import unicodedata
 
 
-API_TOKEN = ''
+API_TOKEN = 'hrFxs-BZh83CNcU8TVfPc8IpSHrEyHk8XCnbTZKuz87gCJ8hQxCXlwH-BRK0r4fI'
 
-subscription_key = ''
-endpoint = ''
+subscription_key = "a529a57e42a443cd8a80f02b69f88ca5"
+endpoint = "https://hodp.cognitiveservices.azure.com/"
 sentiment_url = endpoint + "/text/analytics/v3.0/sentiment"
 
 def chunk(text):
 
     # tokenize into sentences
-    s = tokenize.sent_tokenize(text)
+    s = tokenize.word_tokenize(text)
 
     # limits
     item_limit = 5000
-    doc_limit = 2000
+    doc_limit = 5000
 
     # holder variables
     phrases = []
@@ -30,25 +30,37 @@ def chunk(text):
             cur = cur + " " + sent
         else:
             phrases.append([cur, len(cur)])
+            print(phrases)
+            print('-----------------------------')
             cur = sent
     if cur != "":
         phrases.append([cur, len(cur)])
+
+        
+    print('-----------------------------')
+    print(phrases)
 
     # combine into documents
     documents = []
     cur = []
     curL = 0
     for phr in phrases:
-        # print(phr[1]) # debug
+        print(phr[1]) # debug
         if curL + phr[1] < doc_limit:
             curL += phr[1]
             cur.append(phr[0])
+            print(cur)
         else:
             documents.append(cur)
             cur = []
             curL = 0
     if len(cur) > 0:
         documents.append(cur)
+      
+    print('-----------------------------')
+    print(cur)
+    print(curL)
+    print(documents)
 
     # print(documents) # debug
 
@@ -82,6 +94,8 @@ def find_lyrics(title, artist):
 def calc_sentiment(lyrics):
     text = lyrics.replace("\n", ", ")
     text = chunk(text)
+
+    pprint(text)
 
     sentiments_list = []
     for index in range(len(text)):
