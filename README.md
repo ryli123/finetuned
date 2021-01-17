@@ -1,5 +1,5 @@
 # FineTuned
-Hack the North 2020++ project!
+Hack the North 2020++ project! [Devpost Submission](https://devpost.com/software/finetuned) | [YouTube Demo](https://youtu.be/F-QDLok1CW4)
 
 The memory-making machine that tunes your photos to the song of the moment.
 
