@@ -71,7 +71,7 @@ def song():
 
         session["song_info"] = find_song(title, artist)
         # check if this is correct
-        sentiment_num = calc_sentiment(find_lyrics(title, artist))
+        session['sentiment_num'] = calc_sentiment(find_lyrics(title, artist))
         return redirect(url_for("edited"))
 
     if session.get("images") is None:
@@ -95,8 +95,7 @@ def edited():
     images = []
     for image in session["images"]:
         #images.append(song_to_image(image, session["song_info"]))
-        images.append(song_to_image(image, session["song_info"], sentiment_num)) #pass in sentiment_num set of (pos, neg, neutral) as well
-    session.clear()
+        images.append(song_to_image(image, session["song_info"], session['sentiment_num'])) #pass in sentiment_num set of (pos, neg, neutral) as well
     return render_template("edited.html", images=images)
 
 
