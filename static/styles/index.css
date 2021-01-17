@@ -4,9 +4,12 @@
 
 */
 
-
-* {box-sizing: border-box}
-* {font-family: Arial, Helvetica, sans-serif}
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #4CAF50;
+  background: #d34e4e;
+}
 
 
 /* Add padding to containers */
