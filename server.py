@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 from tempfile import mkdtemp
 import os
 from spotify import find_song
-from genius import calc_sentiment
+from genius import calc_sentiment, find_lyrics
 from phototest import song_to_image
 
 
@@ -62,6 +62,8 @@ def song():
         title = request.form.get('title')
 
         session["song_info"] = find_song(title, artist)
+        # check if this is correct
+        sentiment_num = calc_sentiment(find_lyrics(title, artist))
         return redirect(url_for("edited"))
 
     if session.get("images") is None:
@@ -84,10 +86,14 @@ def edited():
 
     images = []
     for image in session["images"]:
+<<<<<<< Updated upstream
         images.append(song_to_image(image, session["song_info"]))
     session.clear()
 
 
+=======
+        images.append(song_to_image(image, session["song_info"], sentiment_num)) #pass in sentiment_num set of (pos, neg, neutral) as well
+>>>>>>> Stashed changes
     return render_template("edited.html", images=images)
 
 if __name__ == "__main__":

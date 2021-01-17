@@ -11,12 +11,20 @@ from PIL.ImageFilter import (
 #enhancer.enhance(0.25).save(
 #    "ImageEnhance_Brightness_100.jpg")
 
-def song_to_image(image, song_extract):
+def song_to_image(image, song_extract, sentiment): #pass sentiment in too 
+    #sentiment passed in as tuple of (pos, neutral, neg) that sum up to 1 
     photo = Image.open(image)
 
     print(photo.format)
     print(photo.mode)
     print(photo.size)
+
+    pos = sentiment[0]
+    neut = sentiment[1]
+    neg = sentiment[2]
+
+    # FOR SENTIMENT ANALYSIS 
+
 
     # put the filtering stuff here, return an edited image
     # the song_extract is an array in this order
